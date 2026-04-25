@@ -1,0 +1,16 @@
+.layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 24px;
+    padding: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.history-panel {
+    height: fit-content;
+}
+
+.checker-panel {
+    height: fit-content;
+}

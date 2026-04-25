@@ -7,8 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HibpService } from '../../core/services/hibp.service';
+import { HistoryService } from '../../core/services/history.service';
 import { CheckResult } from '../../core/models/check-result.model';
 import { ResultCardComponent } from '../result-card/result-card';
+import { HistoryComponent } from '../history/history';
 
 @Component({
   selector: 'app-password-checker',
@@ -34,6 +36,7 @@ export class PasswordCheckerComponent {
 
   constructor(
     private hibpService : HibpService,
+    private historyService: HistoryService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -43,6 +46,7 @@ export class PasswordCheckerComponent {
     this.result = null;
     try {
       this.result = await this.hibpService.checkPassword(this.password);
+      this.historyService.addEntry(this.result)
     } catch (error) {
       console.error('Error al verificar la contraseña:', error);
     } finally {
