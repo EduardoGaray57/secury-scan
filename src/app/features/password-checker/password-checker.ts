@@ -8,9 +8,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HibpService } from '../../core/services/hibp.service';
 import { HistoryService } from '../../core/services/history.service';
+import { PasswordStrengthService, StrengthResult } from '../../core/services/password-strength.service';
 import { CheckResult } from '../../core/models/check-result.model';
 import { ResultCardComponent } from '../result-card/result-card';
-import { HistoryComponent } from '../history/history';
 
 @Component({
   selector: 'app-password-checker',
@@ -33,12 +33,18 @@ export class PasswordCheckerComponent {
   hidePassword = true;
   loading = false;
   result: CheckResult | null = null;
+  strength: StrengthResult | null = null;
 
   constructor(
     private hibpService : HibpService,
     private historyService: HistoryService,
+    private strengthService: PasswordStrengthService,
     private cdr: ChangeDetectorRef
   ) {}
+
+  onPasswordChange(value: string): void {
+    this.strength = value ? this.strengthService.evaluate(value) : null;
+  }
 
   async checkPassword(): Promise<void> {
     if (!this.password) return;
@@ -52,6 +58,7 @@ export class PasswordCheckerComponent {
     } finally {
       this.loading = false;
       this.password = '';
+      this.strength = null
       this.cdr.detectChanges();
     }
   }
