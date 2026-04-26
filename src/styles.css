@@ -1,1 +1,107 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+:root {
+    --bg-color: #f5f5f5;
+    --text-color: #212121;
+    --card-bg: #ffffff;
+    --subtitle-color: #555555;
+}
+
+.dark-theme {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --subtitle-color: #aaaaaa;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+}
+
+.dark-theme mat-card {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+}
+
+.dark-theme mat-card-title {
+    color: var(--text-color) !important;
+}
+
+.dark-theme mat-card-subtitle {
+    color: var(--subtitle-color) !important;
+}
+
+.dark-theme mat-icon {
+    color: var(--text-color) !important;
+}
+
+.dark-theme .mat-mdc-list-item {
+    color: var(--text-color) !important;
+}
+
+.dark-theme .mat-mdc-list-item .mdc-list-item__primary-text,
+.dark-theme .mat-mdc-list-item .mdc-list-item__secondary-text {
+    color: var(--text-color) !important;
+}
+
+.dark-theme label,
+.dark-theme p,
+.dark-theme span {
+    color: var(--text-color);
+}
+
+.dark-theme .empty-message {
+    color: var(--subtitle-color) !important;
+}
+
+.dark-theme .mat-toolbar {
+    background-color: #1a237e !important;
+    color: #ffffff !important;
+}
+
+.dark-theme mat-toolbar mat-icon {
+    color: #ffffff !important;
+}
+
+.dark-theme .mat-toolbar span {
+    color: #ffffff !important;
+}
+
+.dark-theme .mat-mdc-form-field input {
+    color: var(--text-color) !important;
+    caret-color: var(--text-color) !important;
+}
+
+.dark-theme .mat-mdc-text-field-wrapper {
+    background-color: transparent !important;
+}
+
+.dark-theme .mdc-text-field--outline .mdc-notched-outline__leading,
+.dark-theme .mdc-text-field--outline .mdc-notched-outline__notch,
+.dark-theme .mdc-text-field--outline .mdc-notched-outline__trailing {
+    border-color: #aaaaaa !important;
+}
+
+.dark-theme .mdc-text-field--outline:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+.dark-theme .mdc-text-field--outline:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+.dark-theme .mdc-text-field--outline:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+    border-color: #7c4dff !important;
+}
+
+.dark-theme .mdc-floating-label {
+    color: #aaaaaa !important;
+}
+
+.dark-theme .mat-mdc-form-field button mat-icon {
+    color: var(--text-color) !important;
+}
+
+.dark-theme .mat-mdc-raised-button:not([disable]) {
+    background-color: #7c4dff !important;
+    color: #ffffff !important;
+}
