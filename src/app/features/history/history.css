@@ -1,5 +1,6 @@
 .history-container {
     height: 100%;
+    box-sizing: border-box;
 }
 
 mat-card-title {
@@ -24,4 +25,9 @@ mat-list-item.safe {
 
 mat-icon[matListItemIcon] {
     color: inherit;
+}
+
+mat-list {
+    width: 100%;
+    padding: 0 !important;
 }

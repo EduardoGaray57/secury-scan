@@ -105,3 +105,23 @@ html, body {
     background-color: #7c4dff !important;
     color: #ffffff !important;
 }
+
+@media (max-width: 780px) {
+    html, body {
+        min-height: 100vh;
+        background-color: var(--bg-color) !important;
+    }
+
+    .layout {
+        min-height: 100vh;
+    }
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--bg-color) !important;
+}

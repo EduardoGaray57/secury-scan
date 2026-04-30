@@ -1,4 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations'
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -26,7 +27,18 @@ import { ResultCardComponent } from '../result-card/result-card';
     ResultCardComponent
   ],
   templateUrl: './password-checker.html',
-  styleUrl: './password-checker.css'
+  styleUrl: './password-checker.css',
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(-30px)' }),
+        animate('600ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+      ]),
+      transition(':leave', [
+        animate('400ms ease-in', style({ opacity: 0, transform: 'translateY(-30px)' }))
+      ])
+    ])
+  ]
 })
 export class PasswordCheckerComponent {
   password = '';
